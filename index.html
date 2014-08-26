@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Prefer:safe is bad</title>
+<style>
+  body {
+    margin: 0;
+    padding: 20px;
+    font: 16px sans-serif;
+    line-height: 1.5;
+    color: #111;
+  }
+
+  #content {
+    margin: auto;
+    max-width: 800px;
+  }
+
+  h1 {
+    border-bottom: 1px solid #eee;
+    color: #ff4136;
+  }
+  h1 > span {
+    color: #777;
+  }
+
+  ul {
+    padding-left: 18px;
+  }
+
+  ul > li {
+    margin-bottom: 20px;
+  }
+
+  pre {
+    background: #f4f4f4;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 3px;
+    color: #333;
+    border: 1px solid #eee;
+  }
+
+  .footer {
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+    font-size: small; 
+    color: #aaa;
+  }
+</style>
+</head>
+<body>
+<div id="content">
+  <h1><span>Prefer:safe</span> is bad</h1>
+
+<p>
+<code>Prefer:safe</code> is a new misfeature in Firefox and Internet
+Explorer that is supposed to make Web &ldquo;safer&rdquo; for &ldquo;young users and family members whose
+needs related to trust and safety may differ&rdquo;.
+<a href="https://blog.mozilla.org/privacy/2014/07/22/prefersafe-making-online-safety-simpler-in-firefox/">
+  Read about it in Mozilla&rsquo;s blog</a>.</p>
+<p>
+Web browsers implementing this feature report to all visited web sites
+whether your computer have parental controls enabled by sending
+a special HTTP header <code>Prefer: safe</code>.
+</p>
+
+<h2>Why it is bad</h2>
+
+<ul>
+  <li>
+  <b>It violates privacy.</b>
+  When you turn on parental controls in your operating system you do not expect,
+  your browser to report this choice to every web site. But this is exactly what
+  <code>Prefer:safe</code> does: it makes every web site know that you turned
+  on parental controls.
+  </li>
+
+  <li>
+  <b>It enables ads targeting kids.</b>
+  When your browser reports that you turned on parental controls, it allows
+  advertizers and marketers to target kids.
+  </li>
+
+  <li>
+  <b>It enables banning kids from using web sites.</b>
+  </li>
+
+  <li>
+  <b>It outsources parental controls to website operators.</b>
+  </li>
+
+  <li>
+  <b>It sets a dangerous precedent.</b>
+  What if courts decide to consider not censoring your web site when it
+  receives <code>Prefer:safe</code> as knowingly serving
+  &ldquo;objectionable&rdquo; content to minors?
+
+  What if governments will require censoring web pages based on what HTTP
+  headers are sent by the browser?
+  </li>
+
+  <li>
+  <b>It puts peer pressure on web site operators to self-censor.</b> It is not
+  a web site operator's job to decide what your chidren can and cannot see, but
+  if this header is introduced, some web site operators will receive complaints
+  for not implementing self-censorship, or not implementing enough of it,
+  even if they disagree with what &ldquo;objectionable&rdquo; content means.
+  </li>
+
+  <li>
+  <b>It introduces another useless HTTP header.</b> We have enough of them, thank you.
+  </li>
+
+</ul>
+
+<div class="footer">
+  <p>Public domain. <a href="https://github.com/prefersafe/">Source code</a>
+</div>
+
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-54159832-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
